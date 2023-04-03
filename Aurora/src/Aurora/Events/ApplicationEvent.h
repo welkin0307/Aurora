@@ -9,6 +9,7 @@ namespace Aurora {
 	class AURORA_API WindowResizeEvent : public Event
 	{
 	public:
+		// 构造函数 -初始化WindowResizeEvent，初始化m_Width,m_Height
 		WindowResizeEvent(unsigned int width,unsigned int height)
 			: m_Width(width), m_Height(height) {}
 
@@ -33,7 +34,7 @@ namespace Aurora {
 	public:
 		WindowCloseEvent();
 
-		EVENT_CLASS_TYPE(WindowClose);
+		EVENT_CLASS_TYPE(WindowClose)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
@@ -42,7 +43,7 @@ namespace Aurora {
 	public:
 		AppTickEvent();
 
-		EVENT_CLASS_TYPE(AppTick);
+		EVENT_CLASS_TYPE(AppTick)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 

@@ -17,4 +17,5 @@
 
 #endif
 
-#define BIT(x) (1<<x)
+// Î»ÔËËã 1 << x = 1*2^x
+#define BIT(x) (1 << x)

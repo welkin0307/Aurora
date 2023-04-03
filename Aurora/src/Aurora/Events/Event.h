@@ -1,6 +1,6 @@
 #pragma once
 
-#include "./Core.h"
+#include "Aurora/Core.h"
 
 #include <string>
 #include <functional>
@@ -12,7 +12,13 @@ namespace Aurora {
 	// For the future,a better strategy might be to buffer events in an event
 	// bus and process them during the "event" part of the update stage.
 
-	enum class EnentType
+	// 事件系统在Aurora Engine(极光引擎）中是以阻塞事件的形式设计的,当事件发生时，
+	// 整个应用会停止，然后处理事件。
+	// 对于这个功能，一个更好的实现方式是通过事件队列或缓冲区来实现外部应用和引擎
+	// 事件交互。
+
+	// 描述事件类型
+	enum class EventType
 	{
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
@@ -21,6 +27,10 @@ namespace Aurora {
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
+	// 事件分类
+	// 通过位运算先将事件分成多个事件类型，再通过设置不同的位字段,取掩码的方式来将
+	// 同一事件类型中的多个应用区分开
+	// 例:鼠标移动和鼠标滚动属于鼠标事件中的不同应用
 	enum EventCategory
 	{
 		None = 0,
@@ -36,7 +46,8 @@ namespace Aurora {
 								virtual const char* GetName() const override { return #type; }
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
-
+	
+	// 事件基类
 	class AURORA_API Event
 	{
 		friend class EventDispatcher;
@@ -46,11 +57,14 @@ namespace Aurora {
 		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
+		// 用于过滤某些类型的事件
 		inline bool IsInCategory(EventCategory category)
 		{
 			return GetCategoryFlags() & category;
 		}
 	protected:
+		// 判断事件是否被处理
+		// 当调度事件去处理不同的层时，阻止事件被进一步传递
 		bool m_Handled = false;
 	};
 

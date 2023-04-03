@@ -14,7 +14,7 @@ workspace "Aurora"
     }
 
 --构建类型(Debug/Release/Dist)-系统/平台信息(Windows/Mac)-构建架构
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-{cfg.archiecture}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 --项目
 project "Aurora"
@@ -40,13 +40,14 @@ project "Aurora"
     --依赖库路径
     includedirs
     {
+        "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include"
     }
 
     --Windows平台过滤器
     filter "system:windows"
         --编译标志
-        --cppdialect "C++14"
+        cppdialect "C++17"
         --指定链接运行时库的方式 静态链接
         staticruntime "On"
         --指定Windows SDK版本 最新
@@ -107,7 +108,7 @@ project "Sandbox"
     }
 
     filter "system:windows"
-        --cppdialect "C++14"
+        cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"
 
