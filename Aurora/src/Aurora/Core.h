@@ -17,5 +17,14 @@
 
 #endif
 
+// ∂œ—‘
+#ifdef AUR_ENABLE_ASSERTS
+	#define AUR_CLIENT_ASSERT(x,...){ if(!(x)){AUR_CLIENT_ERROR("Assertion Failed: {0}", __VA_ARGS__);__debugbreak();}}
+	#define AUR_CORE_ASSERT(x,...) {if(!(x)){AUR_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__);__debugbreak();}}
+#else
+	#define AUR_CLIENT_ASSERT(x,...)
+	#define AUR_CORE_ASSERT(x,...)
+#endif
+
 // Œª‘ÀÀ„ 1 << x = 1*2^x
 #define BIT(x) (1 << x)

@@ -35,6 +35,9 @@
       <Filter>Aurora</Filter>
     </ClInclude>
     <ClInclude Include="src\aurpch.h" />
+    <ClInclude Include="WindowsWindow.h" />
+    <ClInclude Include="src\Aurora\Window.h" />
+    <ClInclude Include="src\Aurora\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aurora\Application.cpp">
@@ -44,5 +47,7 @@
       <Filter>Aurora</Filter>
     </ClCompile>
     <ClCompile Include="src\aurpch.cpp" />
+    <ClCompile Include="WindowsWindow.cpp" />
+    <ClCompile Include="src\Aurora\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

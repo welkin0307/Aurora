@@ -16,6 +16,12 @@ workspace "Aurora"
 --构建类型(Debug/Release/Dist)-系统/平台信息(Windows/Mac)-构建架构
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- 包含相对于根文件夹的目录
+IncludeDir = {}
+IncludeDir["GLFW"] = "Aurora/vendor/GLFW/include"
+
+include "Aurora/vendor/GLFW"
+
 --项目
 project "Aurora"
     --项目位置
@@ -30,6 +36,7 @@ project "Aurora"
     --中间文件目录
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    --添加预编译头文件
     pchheader "aurpch.h"
     pchsource "Aurora/src/aurpch.cpp"
 
@@ -44,7 +51,15 @@ project "Aurora"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}"
+    }
+
+    --链接到项目
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     --Windows平台过滤器

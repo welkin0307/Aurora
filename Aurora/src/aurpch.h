@@ -12,6 +12,9 @@
 #include <unordered_map>
 #include <unordered_set>
 
+// 日志系统并不会涉及频繁修改，这里添加进预编译头文件来加快编译速度
+#include "Aurora/Log.h"
+
 #ifdef AUR_PLATFORM_WINDOWS
 #include <Windows.h>
 #endif // 
