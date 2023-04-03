@@ -1,7 +1,8 @@
+#include "aurpch.h"
 #include "Application.h"
 
-#include "./Events/ApplicationEvent.h"
-#include "./Log.h"
+#include "Aurora/Events/ApplicationEvent.h"
+#include "Aurora/Log.h"
 
 namespace Aurora {
 

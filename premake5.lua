@@ -30,6 +30,9 @@ project "Aurora"
     --中间文件目录
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "aurpch.h"
+    pchsource "Aurora/src/aurpch.cpp"
+
     --包含文件
     files
     {

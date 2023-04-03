@@ -1,9 +1,7 @@
 #pragma once
 
+#include "aurpch.h"
 #include "Aurora/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Aurora {
 
@@ -68,6 +66,7 @@ namespace Aurora {
 		bool m_Handled = false;
 	};
 
+	// 事件调度器 基于事件类型调度事件
 	class EventDispatcher
 	{
 		template<typename T>

@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Aurora {
 
 	class AURORA_API MouseMovedEvent : public Event
