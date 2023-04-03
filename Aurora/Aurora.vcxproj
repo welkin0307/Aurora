@@ -147,6 +147,10 @@
     <ClInclude Include="src\Aurora\Application.h" />
     <ClInclude Include="src\Aurora\Core.h" />
     <ClInclude Include="src\Aurora\EntryPoint.h" />
+    <ClInclude Include="src\Aurora\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Aurora\Events\Event.h" />
+    <ClInclude Include="src\Aurora\Events\KeyEvent.h" />
+    <ClInclude Include="src\Aurora\Events\MouseEvent.h" />
     <ClInclude Include="src\Aurora\Log.h" />
   </ItemGroup>
   <ItemGroup>
