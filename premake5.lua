@@ -19,8 +19,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- 包含相对于根文件夹的目录
 IncludeDir = {}
 IncludeDir["GLFW"] = "Aurora/vendor/GLFW/include"
+IncludeDir["Glad"] = "Aurora/vendor/Glad/include"
 
 include "Aurora/vendor/GLFW"
+include "Aurora/vendor/Glad"
 
 --项目
 project "Aurora"
@@ -52,13 +54,15 @@ project "Aurora"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}"
     }
 
     --链接到项目
     links
     {
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
 
@@ -75,7 +79,8 @@ project "Aurora"
         defines
         {
             "AUR_PLATFORM_WINDOWS",
-            "AUR_BUILD_DLL"
+            "AUR_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         --后构建步骤 
@@ -88,16 +93,19 @@ project "Aurora"
     --调试版本过滤器
     filter "configurations:Debug"
         defines "AUR_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
         
     --发布版本过滤器
     filter "configurations:Release"
         defines "AUR_RELEASE"
+        buildoptions "/MDd"
         optimize "On"
     
     --发行版本过滤器
     filter "configurations:Dist"
         defines "AUR_DIST"
+        buildoptions "/MDd"
         optimize "On"
 
 project "Sandbox"
@@ -137,12 +145,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "AUR_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "AUR_RELEASE"
+        buildoptions "/MDd"
         optimize "On"
 
     filter "configurations:Dist"
         defines "AUR_DIST"
+        buildoptions "/MDd"
         optimize "On"

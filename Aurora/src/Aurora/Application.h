@@ -1,8 +1,13 @@
 #pragma once
 
+#pragma once
+
 #include "Core.h"
-#include "Events/Event.h"
+
 #include "Window.h"
+#include "Aurora/LayerStack.h"
+#include "Aurora/Events/Event.h"
+#include "Aurora/Events/ApplicationEvent.h"
 
 namespace Aurora {
 
@@ -15,9 +20,18 @@ namespace Aurora {
 		virtual ~Application();
 
 		void Run();
+
+		// 将回调函数绑定到OnEvent函数上
+		void OnEvent(Event& e);
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
 	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
 		std::unique_ptr<Window>m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack;
 	};
 
 	// To be defined in CLIENT
