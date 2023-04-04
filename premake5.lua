@@ -20,9 +20,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Aurora/vendor/GLFW/include"
 IncludeDir["Glad"] = "Aurora/vendor/Glad/include"
+IncludeDir["ImGui"] = "Aurora/vendor/imgui"
 
 include "Aurora/vendor/GLFW"
 include "Aurora/vendor/Glad"
+include "Aurora/vendor/imgui"
 
 --项目
 project "Aurora"
@@ -55,7 +57,8 @@ project "Aurora"
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
-        "%{IncludeDir.Glad}"
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}"
     }
 
     --链接到项目
@@ -63,6 +66,7 @@ project "Aurora"
     {
         "GLFW",
         "Glad",
+        "ImGui",
         "opengl32.lib"
     }
 
