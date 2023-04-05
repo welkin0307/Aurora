@@ -35,9 +35,10 @@ project "Aurora"
     --项目位置
     location "Aurora"
     --项目类型 动态库(.dll)
-    kind "SharedLib"
+    kind "StaticLib"
     --语言
     language "C++"
+    cppdialect "C++17"
     staticruntime "off"
 
     --构建目录
@@ -138,6 +139,7 @@ project "Sandbox"
     {
         "Aurora/vendor/spdlog/include",
         "Aurora/src",
+        "Aurora/vendor",
         "%{IncludeDir.glm}"
     }
 
