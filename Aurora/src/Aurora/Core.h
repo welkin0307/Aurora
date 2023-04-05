@@ -17,6 +17,12 @@
 
 #endif
 
+// µ÷ÊÔ
+#ifdef AUR_DEBUG
+	#define AUR_ENABLE_ASSERTS
+#endif // AUR_DEBUG
+
+
 // ¶ÏÑÔ
 #ifdef AUR_ENABLE_ASSERTS
 	#define AUR_CLIENT_ASSERT(x,...){ if(!(x)){AUR_CLIENT_ERROR("Assertion Failed: {0}", __VA_ARGS__);__debugbreak();}}

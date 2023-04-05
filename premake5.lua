@@ -2,6 +2,9 @@
 workspace "Aurora"
     --项目构建架构
     architecture "x64"
+    --设置启动项目
+    startproject "Sandbox"
+
     --解决方案版本 
     configurations
     {
@@ -21,6 +24,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Aurora/vendor/GLFW/include"
 IncludeDir["Glad"] = "Aurora/vendor/Glad/include"
 IncludeDir["ImGui"] = "Aurora/vendor/imgui"
+IncludeDir["glm"] = "Aurora/vendor/glm"
 
 include "Aurora/vendor/GLFW"
 include "Aurora/vendor/Glad"
@@ -34,6 +38,7 @@ project "Aurora"
     kind "SharedLib"
     --语言
     language "C++"
+    staticruntime "off"
 
     --构建目录
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -48,7 +53,9 @@ project "Aurora"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl",
     }
 
     --依赖库路径
@@ -58,7 +65,8 @@ project "Aurora"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
-        "%{IncludeDir.ImGui}"
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}"
     }
 
     --链接到项目
@@ -129,7 +137,8 @@ project "Sandbox"
     includedirs
     {
         "Aurora/vendor/spdlog/include",
-        "Aurora/src"
+        "Aurora/src",
+        "%{IncludeDir.glm}"
     }
 
     links

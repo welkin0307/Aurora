@@ -43,6 +43,7 @@ namespace Aurora {
 		virtual void SetVSync(bool enable) = 0;
 		virtual bool IsVSync() const = 0;
 
+		virtual void* GetNativeWindow() const = 0;
 		// It must be implemented on different platforms.
 		// 它必须在不同的平台上被实现。
 		static Window* Create(const WindowProps& props = WindowProps());

@@ -10,12 +10,23 @@ public:
 
 	void OnUpdate() override
 	{
-		AUR_CLIENT_INFO("ExampleLayer::Update");
+		if (Aurora::Input::IsKeyPressed(AUR_KEY_TAB))
+		{
+			AUR_CLIENT_INFO("Tab key is pressed (poll)!");
+		}
 	}
 
 	void OnEvent(Aurora::Event& event) override
 	{
-		AUR_CLIENT_TRACE("{0}", event);
+		if (event.GetEventType() == Aurora::EventType::KeyPressed)
+		{
+			Aurora::KeyPressedEvent& e = (Aurora::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == AUR_KEY_TAB)
+			{
+				AUR_CLIENT_TRACE("Tab key is pressed (event)!");
+			}
+			AUR_CLIENT_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 class Sandbox : public Aurora::Application 
