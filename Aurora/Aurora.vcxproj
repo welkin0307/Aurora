@@ -155,6 +155,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Aurora.h" />
     <ClInclude Include="src\Aurora\Application.h" />
     <ClInclude Include="src\Aurora\Core.h" />
@@ -170,6 +171,7 @@
     <ClInclude Include="src\Aurora\LayerStack.h" />
     <ClInclude Include="src\Aurora\Log.h" />
     <ClInclude Include="src\Aurora\MouseButtonCodes.h" />
+    <ClInclude Include="src\Aurora\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Aurora\Window.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -538,6 +540,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Aurora\Application.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
