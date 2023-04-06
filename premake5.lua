@@ -26,15 +26,18 @@ IncludeDir["Glad"] = "Aurora/vendor/Glad/include"
 IncludeDir["ImGui"] = "Aurora/vendor/imgui"
 IncludeDir["glm"] = "Aurora/vendor/glm"
 
-include "Aurora/vendor/GLFW"
-include "Aurora/vendor/Glad"
-include "Aurora/vendor/imgui"
+group "Dependencies"
+    include "Aurora/vendor/GLFW"
+    include "Aurora/vendor/Glad"
+    include "Aurora/vendor/imgui"
+
+group ""
 
 --项目
 project "Aurora"
     --项目位置
     location "Aurora"
-    --项目类型 动态库(.dll)
+    --项目类型 静态库(.lib)
     kind "StaticLib"
     --语言
     language "C++"
