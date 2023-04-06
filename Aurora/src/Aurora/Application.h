@@ -9,6 +9,8 @@
 
 #include "Aurora/ImGui/ImGuiLayer.h"
 
+#include "Aurora/Renderer/Shader.h"
+
 namespace Aurora {
 
 	class AURORA_API Application
@@ -39,6 +41,7 @@ namespace Aurora {
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 	};

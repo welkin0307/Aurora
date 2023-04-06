@@ -1197,6 +1197,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Aurora\Renderer\Shader.h">
+      <Filter>src\Aurora\Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aurora\Application.cpp">
@@ -1228,6 +1231,9 @@
     </ClCompile>
     <ClCompile Include="src\aurpch.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Aurora\Renderer\Shader.cpp">
+      <Filter>src\Aurora\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
