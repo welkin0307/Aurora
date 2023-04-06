@@ -13,8 +13,14 @@
     <Filter Include="src\Aurora\ImGui">
       <UniqueIdentifier>{F0DDC0EE-DCD6-DF40-0509-C5C5F160BF4C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Aurora\Renderer">
+      <UniqueIdentifier>{AC3EB730-18A0-943E-A10D-DBF00D6ECBFD}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
@@ -87,8 +93,14 @@
     <ClInclude Include="src\Aurora\MouseButtonCodes.h">
       <Filter>src\Aurora</Filter>
     </ClInclude>
+    <ClInclude Include="src\Aurora\Renderer\GraphicsContext.h">
+      <Filter>src\Aurora\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Aurora\Window.h">
       <Filter>src\Aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1185,8 +1197,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Aurora\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aurora\Application.cpp">
@@ -1207,6 +1217,9 @@
     <ClCompile Include="src\Aurora\Log.cpp">
       <Filter>src\Aurora</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1216,6 +1229,5 @@
     <ClCompile Include="src\aurpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>

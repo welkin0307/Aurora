@@ -17,7 +17,12 @@ namespace Aurora {
 	{
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		AUR_CORE_ASSERT(status,"Failed to initialize Glad!")
+		AUR_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		AUR_CORE_INFO("OpenGL Info:");
+		AUR_CORE_INFO("  Vendor: {0}", glGetString(GL_VENDOR));
+		AUR_CORE_INFO("  Renderer: {0}", glGetString(GL_RENDERER));
+		AUR_CORE_INFO("  Version: {0}", glGetString(GL_VERSION));
 	}
 
 	void OpenGLContext::SwapBuffers()

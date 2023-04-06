@@ -39,7 +39,7 @@ project "Aurora"
     --语言
     language "C++"
     cppdialect "C++17"
-    staticruntime "off"
+    staticruntime "on"
 
     --构建目录
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -57,6 +57,11 @@ project "Aurora"
         "%{prj.name}/src/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl",
+    }
+
+    defines
+    {
+        "_CRT_SECURE_NO_WARNINGS"
     }
 
     --依赖库路径
@@ -81,10 +86,6 @@ project "Aurora"
 
     --Windows平台过滤器
     filter "system:windows"
-        --编译标志
-        cppdialect "C++17"
-        --指定链接运行时库的方式 静态链接
-        staticruntime "On"
         --指定Windows SDK版本 最新
         systemversion "latest"
 
@@ -96,35 +97,30 @@ project "Aurora"
             "GLFW_INCLUDE_NONE"
         }
 
-        --后构建步骤 
-        postbuildcommands
-        {
-            --将Aurora.dll复制到Sandbox应用程序目录
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-        }
-
     --调试版本过滤器
     filter "configurations:Debug"
         defines "AUR_DEBUG"
-        buildoptions "/MDd"
+        runtime "Debug"
         symbols "On"
         
     --发布版本过滤器
     filter "configurations:Release"
         defines "AUR_RELEASE"
-        buildoptions "/MDd"
+        runtime "Release"
         optimize "On"
     
     --发行版本过滤器
     filter "configurations:Dist"
         defines "AUR_DIST"
-        buildoptions "/MDd"
+        runtime "Release"
         optimize "On"
 
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "C++"
+    cppdialect "C++17"
+	staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -149,8 +145,6 @@ project "Sandbox"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
         defines
@@ -160,15 +154,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "AUR_DEBUG"
-        buildoptions "/MDd"
+        runtime "Debug"
         symbols "On"
 
     filter "configurations:Release"
         defines "AUR_RELEASE"
-        buildoptions "/MDd"
+        runtime "Release"
         optimize "On"
 
     filter "configurations:Dist"
         defines "AUR_DIST"
-        buildoptions "/MDd"
+        runtime "Release"
         optimize "On"
