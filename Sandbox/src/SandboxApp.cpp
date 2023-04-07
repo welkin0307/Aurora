@@ -57,114 +57,15 @@ public:
 		squareIB.reset(Aurora::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
-		std::string vertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec4 a_Color;
+		//´´½¨Shader
+		m_Shader.reset(Aurora::Shader::Create("assets/shaders/Base.glsl"));
+		m_FlatColorShader.reset(Aurora::Shader::Create("assets/shaders/FlatColor.glsl"));
+		m_TextureShader.reset(Aurora::Shader::Create("assets/shaders/Texture.glsl"));
 
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-
-			out vec3 v_Position;
-			out vec4 v_Color;
-
-			void main()
-			{
-				v_Position = a_Position;
-				v_Color = a_Color;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
-			}
-		)";
-
-		std::string fragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-
-			in vec3 v_Position;
-			in vec4 v_Color;
-
-			void main()
-			{
-				color = vec4(v_Position * 0.5 + 0.5, 1.0);
-				color = v_Color;
-			}
-		)";
-
-		m_Shader.reset(Aurora::Shader::Create(vertexSrc, fragmentSrc));
-
-		std::string flatColorShaderVertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-
-			out vec3 v_Position;
-
-			void main()
-			{
-				v_Position = a_Position;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
-			}
-		)";
-
-		std::string flatColorShaderFragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-
-			in vec3 v_Position;
-			
-			uniform vec3 u_Color;
-
-			void main()
-			{
-				color = vec4(u_Color, 1.0);
-			}
-		)";
-
-		m_FlatColorShader.reset(Aurora::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
-
-		std::string textureShaderVertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec2 a_TexCoord;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-
-			out vec2 v_TexCoord;
-
-			void main()
-			{
-				v_TexCoord = a_TexCoord;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
-			}
-		)";
-
-		std::string textureShaderFragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-
-			in vec2 v_TexCoord;
-			
-			uniform sampler2D u_Texture;
-
-			void main()
-			{
-				color = texture(u_Texture, v_TexCoord);
-			}
-		)";
-
-		m_TextureShader.reset(Aurora::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
-
-		m_Texture = Aurora::Texture2D::Create("assets/textures/Checkerboard.png");
-		m_ChernoLogoTexture = Aurora::Texture2D::Create("assets/textures/ChernoLogo.png");
+		//m_Texture = Aurora::Texture2D::Create("assets/textures/Checkerboard.png");
+		m_Texture = Aurora::Texture2D::Create("assets/textures/Background.jpg");
+		//m_ChernoLogoTexture = Aurora::Texture2D::Create("assets/textures/ChernoLogo.png");AuroraEngineIcon
+		m_AuroraLogoTexture = Aurora::Texture2D::Create("assets/textures/AuroraEngineIcon.png");
 
 		std::dynamic_pointer_cast<Aurora::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Aurora::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -212,11 +113,10 @@ public:
 
 		m_Texture->Bind();
 		Aurora::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-		m_ChernoLogoTexture->Bind();
+		//m_ChernoLogoTexture->Bind();
+		m_AuroraLogoTexture->Bind();
 		Aurora::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
-		// Triangle
-		// Aurora::Renderer::Submit(m_Shader, m_VertexArray);
 
 		Aurora::Renderer::EndScene();
 	}
@@ -238,7 +138,7 @@ private:
 	Aurora::Ref<Aurora::Shader> m_FlatColorShader, m_TextureShader;
 	Aurora::Ref<Aurora::VertexArray> m_SquareVA;
 
-	Aurora::Ref<Aurora::Texture2D> m_Texture, m_ChernoLogoTexture;
+	Aurora::Ref<Aurora::Texture2D> m_Texture, m_AuroraLogoTexture;// m_ChernoLogoTexture;
 
 	Aurora::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
@@ -248,6 +148,7 @@ private:
 	float m_CameraRotationSpeed = 180.0f;
 
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
+	glm::vec4 m_FontColor = { 0.0f, 0.0f, 0.0f ,1.0f };
 };
 
 class Sandbox : public Aurora::Application
