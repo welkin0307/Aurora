@@ -7,17 +7,13 @@
 #include "Aurora/Events/Event.h"
 #include "Aurora/Events/ApplicationEvent.h"
 
+#include "Aurora/Core/Timestep.h"
+
 #include "Aurora/ImGui/ImGuiLayer.h"
-
-#include "Aurora/Renderer/Shader.h"
-#include "Aurora/Renderer/Buffer.h"
-#include "Aurora/Renderer/VertexArray.h"
-
-#include "Aurora/Renderer/OrthographicCamera.h"
 
 namespace Aurora {
 
-	class AURORA_API Application
+	class Application
 	{
 	public:
 		//¹¹Ôìº¯Êý
@@ -38,24 +34,12 @@ namespace Aurora {
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window>m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		//unsigned int m_VertexArray;
-		//std::unique_ptr<Shader> m_Shader;
-		//std::unique_ptr<VertexBuffer> m_VertexBuffer;
-		//std::unique_ptr<IndexBuffer> m_IndexBuffer;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 	};
