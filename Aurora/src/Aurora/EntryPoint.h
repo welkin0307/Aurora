@@ -10,9 +10,6 @@ int main(int argc,char** argv)
 	AUR_CORE_WARN("Initialized Log!");
 	AUR_CLIENT_INFO("Hello Rookie!");
 
-	int a = 10;
-	AUR_CLIENT_INFO("Hello! Var = {0}", a);
-
 	auto app = Aurora::CreateApplication();
 	app->Run();
 	delete app;
