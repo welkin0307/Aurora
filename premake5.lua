@@ -16,6 +16,12 @@ workspace "Aurora"
         "Dist"
     }
 
+    --多处理器编译标志
+    flags
+    {
+        "MultiProcessorCompile"
+    }
+
 --构建类型(Debug/Release/Dist)-系统/平台信息(Windows/Mac)-构建架构
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
