@@ -13,6 +13,8 @@
 #include "Aurora/Renderer/Buffer.h"
 #include "Aurora/Renderer/VertexArray.h"
 
+#include "Aurora/Renderer/OrthographicCamera.h"
+
 namespace Aurora {
 
 	class AURORA_API Application
@@ -52,6 +54,8 @@ namespace Aurora {
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
