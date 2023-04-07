@@ -143,15 +143,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Aurora\Core\Timestep.h" />
-    <ClInclude Include="src\Aurora\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\Aurora\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\Aurora\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Aurora.h" />
     <ClInclude Include="src\Aurora\Application.h" />
     <ClInclude Include="src\Aurora\Core.h" />
+    <ClInclude Include="src\Aurora\Core\Timestep.h" />
     <ClInclude Include="src\Aurora\EntryPoint.h" />
     <ClInclude Include="src\Aurora\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Aurora\Events\Event.h" />
@@ -166,11 +161,18 @@
     <ClInclude Include="src\Aurora\MouseButtonCodes.h" />
     <ClInclude Include="src\Aurora\Renderer\Buffer.h" />
     <ClInclude Include="src\Aurora\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Aurora\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Aurora\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Aurora\Renderer\Renderer.h" />
+    <ClInclude Include="src\Aurora\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Aurora\Renderer\Shader.h" />
+    <ClInclude Include="src\Aurora\Renderer\VertexArray.h" />
     <ClInclude Include="src\Aurora\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\aurpch.h" />
@@ -536,14 +538,8 @@
     <ClInclude Include="vendor\glm\glm\vec3.hpp" />
     <ClInclude Include="vendor\glm\glm\vec4.hpp" />
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
-    <ClInclude Include="src\Aurora\Renderer\VertexArray.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Aurora\Renderer\OrthographicCamera.cpp" />
-    <ClCompile Include="src\Aurora\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\Aurora\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Aurora\Application.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -579,12 +575,32 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
+    <ClCompile Include="src\Aurora\Renderer\OrthographicCamera.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Aurora\Renderer\RenderCommand.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
     <ClCompile Include="src\Aurora\Renderer\Renderer.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
+    <ClCompile Include="src\Aurora\Renderer\RendererAPI.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
     <ClCompile Include="src\Aurora\Renderer\Shader.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Aurora\Renderer\VertexArray.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -595,6 +611,21 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -615,7 +646,6 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
