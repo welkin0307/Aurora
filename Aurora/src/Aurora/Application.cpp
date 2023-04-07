@@ -26,6 +26,8 @@ namespace Aurora {
 		//设置事件回调
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
+		Renderer::Init();
+
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 	}

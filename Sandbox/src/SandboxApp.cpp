@@ -164,6 +164,7 @@ public:
 		m_TextureShader.reset(Aurora::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 		m_Texture = Aurora::Texture2D::Create("assets/textures/Checkerboard.png");
+		m_ChernoLogoTexture = Aurora::Texture2D::Create("assets/textures/ChernoLogo.png");
 
 		std::dynamic_pointer_cast<Aurora::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Aurora::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -211,6 +212,8 @@ public:
 
 		m_Texture->Bind();
 		Aurora::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		m_ChernoLogoTexture->Bind();
+		Aurora::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
 		// Aurora::Renderer::Submit(m_Shader, m_VertexArray);
@@ -235,7 +238,7 @@ private:
 	Aurora::Ref<Aurora::Shader> m_FlatColorShader, m_TextureShader;
 	Aurora::Ref<Aurora::VertexArray> m_SquareVA;
 
-	Aurora::Ref<Aurora::Texture2D> m_Texture;
+	Aurora::Ref<Aurora::Texture2D> m_Texture, m_ChernoLogoTexture;
 
 	Aurora::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
