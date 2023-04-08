@@ -11,6 +11,7 @@
 #include "Aurora/Input.h"
 #include "Aurora/KeyCodes.h"
 #include "Aurora/MouseButtonCodes.h"
+#include "Aurora/OrthographicCameraController.h"
 
 #include "Aurora/ImGui/ImGuiLayer.h"
 
