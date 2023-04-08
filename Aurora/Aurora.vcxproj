@@ -147,6 +147,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Aurora\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Aurora.h" />
     <ClInclude Include="src\Aurora\Core\Application.h" />
     <ClInclude Include="src\Aurora\Core\Core.h" />
@@ -548,6 +549,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Aurora\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Aurora\Core\Application.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
