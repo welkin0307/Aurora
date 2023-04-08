@@ -147,6 +147,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Aurora\Debug\Instrumentor.h" />
     <ClInclude Include="src\Aurora\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Aurora.h" />
     <ClInclude Include="src\Aurora\Core\Application.h" />

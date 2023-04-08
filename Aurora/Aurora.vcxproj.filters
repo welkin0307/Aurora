@@ -1252,6 +1252,7 @@
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="src\Aurora\Renderer\Renderer2D.h" />
+    <ClInclude Include="src\Aurora\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aurora\Core\Application.cpp">

@@ -8,6 +8,8 @@ namespace Aurora {
 
 	void Renderer::Init()
 	{
+		AUR_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}
