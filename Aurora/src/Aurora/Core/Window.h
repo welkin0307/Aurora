@@ -2,7 +2,7 @@
 
 #include "aurpch.h"
 
-#include "Aurora/Core.h"
+#include "Aurora/Core/Core.h"
 #include "Aurora/Events/Event.h"
 
 namespace Aurora {

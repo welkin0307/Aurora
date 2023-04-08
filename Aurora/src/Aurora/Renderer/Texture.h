@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Aurora/Core.h"
+#include "Aurora/Core/Core.h"
 
 namespace Aurora {
 

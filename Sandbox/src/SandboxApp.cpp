@@ -1,4 +1,5 @@
 #include <Aurora.h>
+#include <Aurora/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -7,13 +8,15 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Sandbox2D.h"
+
 class ExampleLayer : public Aurora::Layer
 {
 public:
 	ExampleLayer()
 		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_VertexArray.reset(Aurora::VertexArray::Create());
+		m_VertexArray = Aurora::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -35,7 +38,7 @@ public:
 		indexBuffer.reset(Aurora::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Aurora::VertexArray::Create());
+		m_SquareVA = Aurora::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -57,81 +60,15 @@ public:
 		squareIB.reset(Aurora::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
-		std::string vertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec4 a_Color;
+		m_Shader = Aurora::Shader::Create("VertexPosColor", "assets/shaders/Base.glsl");
 
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-
-			out vec3 v_Position;
-			out vec4 v_Color;
-
-			void main()
-			{
-				v_Position = a_Position;
-				v_Color = a_Color;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
-			}
-		)";
-
-		std::string fragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-
-			in vec3 v_Position;
-			in vec4 v_Color;
-
-			void main()
-			{
-				color = vec4(v_Position * 0.5 + 0.5, 1.0);
-				color = v_Color;
-			}
-		)";
-
-		m_Shader = Aurora::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
-
-		std::string flatColorShaderVertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-
-			out vec3 v_Position;
-
-			void main()
-			{
-				v_Position = a_Position;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
-			}
-		)";
-
-		std::string flatColorShaderFragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-
-			in vec3 v_Position;
-			
-			uniform vec3 u_Color;
-
-			void main()
-			{
-				color = vec4(u_Color, 1.0);
-			}
-		)";
-
-		m_FlatColorShader = Aurora::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
+		m_FlatColorShader = Aurora::Shader::Create("FlatColor", "assets/shaders/FlatColor.glsl");
 
 		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
-		m_Texture = Aurora::Texture2D::Create("assets/textures/Checkerboard.png");
-		m_ChernoLogoTexture = Aurora::Texture2D::Create("assets/textures/ChernoLogo.png");
+		m_Texture = Aurora::Texture2D::Create("assets/textures/Background.jpg");
+		//m_ChernoLogoTexture = Aurora::Texture2D::Create("assets/textures/ChernoLogo.png");
+		m_AuroraLogoTexture = Aurora::Texture2D::Create("assets/textures/AuroraEngineIcon.png");
 
 		std::dynamic_pointer_cast<Aurora::OpenGLShader>(textureShader)->Bind();
 		std::dynamic_pointer_cast<Aurora::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
@@ -167,7 +104,7 @@ public:
 
 		m_Texture->Bind();
 		Aurora::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-		m_ChernoLogoTexture->Bind();
+		m_AuroraLogoTexture->Bind();
 		Aurora::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
@@ -195,7 +132,7 @@ private:
 	Aurora::Ref<Aurora::Shader> m_FlatColorShader;
 	Aurora::Ref<Aurora::VertexArray> m_SquareVA;
 
-	Aurora::Ref<Aurora::Texture2D> m_Texture, m_ChernoLogoTexture;
+	Aurora::Ref<Aurora::Texture2D> m_Texture, m_AuroraLogoTexture;//m_ChernoLogoTexture;
 
 	Aurora::OrthographicCameraController m_CameraController;
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
@@ -206,7 +143,8 @@ class Sandbox : public Aurora::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()

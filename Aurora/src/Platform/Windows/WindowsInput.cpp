@@ -1,12 +1,12 @@
 #include "aurpch.h"
 #include "WindowsInput.h"
 
-#include "Aurora/Application.h"
+#include "Aurora/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Aurora {
 
-	Input* Input::s_Instance = new WindowsInput();
+	Scope<Input> Input::s_Instance = CreateScope<WindowsInput>();
 
 	bool WindowsInput::IsKeyPressedImpl(int keycode)
 	{

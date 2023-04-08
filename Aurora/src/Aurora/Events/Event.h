@@ -1,7 +1,7 @@
 #pragma once
 
 #include "aurpch.h"
-#include "Aurora/Core.h"
+#include "Aurora/Core/Core.h"
 
 namespace Aurora {
 
@@ -39,7 +39,7 @@ namespace Aurora {
 		EventCategoryMouseButton = BIT(4)
 	};
 
-#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
+#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
 								virtual EventType GetEventType() const override { return GetStaticType(); }\
 								virtual const char* GetName() const override { return #type; }
 

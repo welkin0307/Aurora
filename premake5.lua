@@ -105,7 +105,6 @@ project "Aurora"
         --宏定义
         defines
         {
-            "AUR_PLATFORM_WINDOWS",
             "AUR_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
         }
@@ -159,11 +158,6 @@ project "Sandbox"
 
     filter "system:windows"
         systemversion "latest"
-
-        defines
-        {
-            "AUR_PLATFORM_WINDOWS"
-        }
 
     filter "configurations:Debug"
         defines "AUR_DEBUG"
