@@ -58,7 +58,7 @@ namespace Aurora {
 		virtual std::string ToString() const { return GetName(); }
 
 		// 用于过滤某些类型的事件
-		inline bool IsInCategory(EventCategory category)
+		bool IsInCategory(EventCategory category)
 		{
 			return GetCategoryFlags() & category;
 		}
