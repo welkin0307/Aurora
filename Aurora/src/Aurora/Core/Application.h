@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core.h"
+#include "Aurora/Core/Core.h"
 
-#include "Window.h"
+#include "Aurora/Core/Window.h"
 #include "Aurora/Core/LayerStack.h"
 #include "Aurora/Events/Event.h"
 #include "Aurora/Events/ApplicationEvent.h"

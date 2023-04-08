@@ -1,19 +1,16 @@
 #include "aurpch.h"
-#include "Application.h"
+#include "Aurora/Core/Application.h"
 
 #include "Aurora/Core/Log.h"
 
 #include "Aurora/Renderer/Renderer.h"
 
-#include "Input.h"
+#include "Aurora/Core/Input.h"
 
 #include <GLFW/glfw3.h>
 
 
 namespace Aurora {
-
-	//
-#define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
 
@@ -22,9 +19,9 @@ namespace Aurora {
 		AUR_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
-		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window = Window::Create();
 		//设置事件回调
-		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+		m_Window->SetEventCallback(AUR_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
 
@@ -34,6 +31,7 @@ namespace Aurora {
 
 	Application::~Application()
 	{
+		Renderer::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -53,8 +51,8 @@ namespace Aurora {
 	{
 		// 通过事件调度器调度相应的事件函数
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
+		dispatcher.Dispatch<WindowCloseEvent>(AUR_BIND_EVENT_FN(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(AUR_BIND_EVENT_FN(Application::OnWindowResize));
 
 			for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 			{

@@ -1,16 +1,16 @@
 #pragma once
 
 #include "Aurora/Core/Core.h"
-#include "Layer.h"
+#include "Aurora/Core/Layer.h"
 
 #include <vector>
 
 namespace Aurora {
 
-	class AURORA_API LayerStack
+	class LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

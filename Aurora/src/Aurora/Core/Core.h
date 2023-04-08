@@ -45,27 +45,6 @@
 #endif // End of platform detection
 
 
-// DLL support
-
-
-#ifdef AUR_PLATFORM_WINDOWS
-	#if AUR_DYNAMIC_LINK
-		#ifdef AUR_BUILD_DLL
-			//引擎层构建
-			#define AURORA_API __declspec(dllexport)
-		#else
-			//外部应用层链接
-			#define AURORA_API __declspec(dllimport)
-		#endif // AUR_BUILD_DLL
-
-	#else
-		#define AURORA_API
-	#endif
-#else
-	//非Windows平台构建报错
-	#error Aurora Engine only supports Windows!
-#endif
-
 // 调试
 #ifdef AUR_DEBUG
 	#define AUR_ENABLE_ASSERTS

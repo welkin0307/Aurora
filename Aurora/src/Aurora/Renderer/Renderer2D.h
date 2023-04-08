@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OrthographicCamera.h"
+#include "Aurora/Renderer/OrthographicCamera.h"
 
-#include "Texture.h"
+#include "Aurora/Renderer/Texture.h"
 
 namespace Aurora {
 

@@ -1,7 +1,7 @@
 #include "aurpch.h"
-#include "Texture.h"
+#include "Aurora/Renderer/Texture.h"
 
-#include "Renderer.h"
+#include "Aurora/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLTexture.h"
 
 namespace Aurora{

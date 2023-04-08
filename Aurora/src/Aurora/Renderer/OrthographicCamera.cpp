@@ -1,5 +1,5 @@
 #include "aurpch.h"
-#include "OrthographicCamera.h"
+#include "Aurora/Renderer/OrthographicCamera.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 

@@ -1,11 +1,7 @@
 #include "aurpch.h"
-#include "Layerstack.h"
+#include "Aurora/Core/LayerStack.h"
 
 namespace Aurora {
-
-	LayerStack::LayerStack()
-	{
-	}
 
 	LayerStack::~LayerStack()
 	{

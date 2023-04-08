@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Event.h"
+#include "Aurora/Events/Event.h"
 
 namespace Aurora {
 
-	class AURORA_API WindowResizeEvent : public Event
+	class WindowResizeEvent : public Event
 	{
 	public:
 		// 构造函数 -初始化WindowResizeEvent，初始化m_Width,m_Height
@@ -27,37 +27,37 @@ namespace Aurora {
 		unsigned int m_Width, m_Height;
 	};
 
-	class AURORA_API WindowCloseEvent : public Event
+	class WindowCloseEvent : public Event
 	{
 	public:
-		WindowCloseEvent() {}
+		WindowCloseEvent() = default;
 
 		EVENT_CLASS_TYPE(WindowClose)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class AURORA_API AppTickEvent : public Event
+	class AppTickEvent : public Event
 	{
 	public:
-		AppTickEvent() {}
+		AppTickEvent() = default;
 
 		EVENT_CLASS_TYPE(AppTick)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class AURORA_API AppUpdateEvent : public Event
+	class AppUpdateEvent : public Event
 	{
 	public:
-		AppUpdateEvent() {}
+		AppUpdateEvent() = default;
 
 		EVENT_CLASS_TYPE(AppUpdate);
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class AURORA_API AppRenderEvent : public Event
+	class AppRenderEvent : public Event
 	{
 	public:
-		AppRenderEvent() {}
+		AppRenderEvent() = default;
 
 		EVENT_CLASS_TYPE(AppRender);
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)

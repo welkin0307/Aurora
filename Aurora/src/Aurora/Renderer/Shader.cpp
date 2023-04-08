@@ -1,8 +1,7 @@
 #include "aurpch.h"
-#include "Shader.h"
+#include "Aurora/Renderer/Shader.h"
 
-
-#include "Renderer.h"
+#include "Aurora/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Aurora {
@@ -12,7 +11,7 @@ namespace Aurora {
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None:	AUR_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(filepath);
+			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(filepath);
 		}
 
 		AUR_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -24,7 +23,7 @@ namespace Aurora {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:	AUR_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(name,filepath);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(name,filepath);
 		}
 
 		AUR_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -36,7 +35,7 @@ namespace Aurora {
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None:	AUR_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(name,vertexSrc, fragmentSrc);
+			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(name,vertexSrc, fragmentSrc);
 		}
 
 		AUR_CORE_ASSERT(false, "Unknown RendererAPI!");

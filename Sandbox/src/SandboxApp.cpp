@@ -1,9 +1,7 @@
 #include <Aurora.h>
 #include <Aurora/Core/EntryPoint.h>
 
-#include "Platform/OpenGL/OpenGLShader.h"
-
-#include "imgui/imgui.h"
+#include <imgui/imgui.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -24,8 +22,8 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		Aurora::Ref<Aurora::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Aurora::VertexBuffer::Create(vertices, sizeof(vertices)));
+		Aurora::Ref<Aurora::VertexBuffer> vertexBuffer = Aurora::VertexBuffer::Create(vertices, sizeof(vertices));
+
 		Aurora::BufferLayout layout = {
 			{ Aurora::ShaderDataType::Float3, "a_Position" },
 			{ Aurora::ShaderDataType::Float4, "a_Color" }
@@ -34,8 +32,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		Aurora::Ref<Aurora::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Aurora::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		Aurora::Ref<Aurora::IndexBuffer> indexBuffer = Aurora::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA = Aurora::VertexArray::Create();
@@ -47,8 +44,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		Aurora::Ref<Aurora::VertexBuffer> squareVB;
-		squareVB.reset(Aurora::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		Aurora::Ref<Aurora::VertexBuffer> squareVB = Aurora::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		squareVB->SetLayout({
 			{ Aurora::ShaderDataType::Float3, "a_Position" },
 			{ Aurora::ShaderDataType::Float2, "a_TexCoord" }
@@ -56,8 +52,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		Aurora::Ref<Aurora::IndexBuffer> squareIB;
-		squareIB.reset(Aurora::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		Aurora::Ref<Aurora::IndexBuffer> squareIB = Aurora::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		m_Shader = Aurora::Shader::Create("VertexPosColor", "assets/shaders/Base.glsl");
@@ -70,8 +65,8 @@ public:
 		//m_ChernoLogoTexture = Aurora::Texture2D::Create("assets/textures/ChernoLogo.png");
 		m_AuroraLogoTexture = Aurora::Texture2D::Create("assets/textures/AuroraEngineIcon.png");
 
-		std::dynamic_pointer_cast<Aurora::OpenGLShader>(textureShader)->Bind();
-		std::dynamic_pointer_cast<Aurora::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
+		textureShader->Bind();
+		textureShader->SetInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Aurora::Timestep ts) override
@@ -87,8 +82,8 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-		std::dynamic_pointer_cast<Aurora::OpenGLShader>(m_FlatColorShader)->Bind();
-		std::dynamic_pointer_cast<Aurora::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		m_FlatColorShader->Bind();
+		m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
 
 		for (int y = 0; y < 20; y++)
 		{

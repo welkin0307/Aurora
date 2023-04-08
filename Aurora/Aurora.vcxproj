@@ -549,6 +549,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Aurora\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Aurora\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Aurora\Core\Application.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>

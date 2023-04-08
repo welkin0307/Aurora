@@ -1330,5 +1330,6 @@
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\Aurora\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\GraphicsContext.cpp" />
   </ItemGroup>
 </Project>

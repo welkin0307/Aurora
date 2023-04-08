@@ -25,7 +25,7 @@ namespace Aurora {
 
 	// Interface representing a desktop system based Window
 	// 表示基于窗口的桌面系统抽象接口（平台无关）
-	class AURORA_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
@@ -46,6 +46,6 @@ namespace Aurora {
 		virtual void* GetNativeWindow() const = 0;
 		// It must be implemented on different platforms.
 		// 它必须在不同的平台上被实现。
-		static Window* Create(const WindowProps& props = WindowProps());
+		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 }

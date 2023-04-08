@@ -1,4 +1,5 @@
 #pragma once
+#include "Aurora/Core/Core.h"
 
 #ifdef AUR_PLATFORM_WINDOWS
 

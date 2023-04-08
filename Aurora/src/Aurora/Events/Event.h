@@ -46,7 +46,7 @@ namespace Aurora {
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 	
 	// 事件基类
-	class AURORA_API Event
+	class Event
 	{
 
 	public:

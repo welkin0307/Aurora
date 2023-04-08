@@ -1,5 +1,5 @@
 #include "aurpch.h"
-#include "OrthographicCameraController.h"
+#include "Aurora/Renderer/OrthographicCameraController.h"
 
 #include "Aurora/Core/Input.h"
 #include "Aurora/Core/KeyCodes.h"
