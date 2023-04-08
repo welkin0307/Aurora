@@ -1,7 +1,7 @@
 --工作空间
 workspace "Aurora"
     --项目构建架构
-    architecture "x64"
+    architecture "x86_64"
     --设置启动项目
     startproject "Sandbox"
 

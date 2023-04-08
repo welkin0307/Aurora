@@ -11,6 +11,8 @@
 
 #include "Aurora/ImGui/ImGuiLayer.h"
 
+int main(int argc, char** argv);
+
 namespace Aurora {
 
 	class Application
@@ -20,8 +22,6 @@ namespace Aurora {
 		Application();
 		//析构函数 接口实际是被Sandbox应用程序继承，故用虚函数
 		virtual ~Application();
-
-		void Run();
 
 		// 将回调函数绑定到OnEvent函数上
 		void OnEvent(Event& e);
@@ -33,6 +33,7 @@ namespace Aurora {
 
 		inline static Application& Get() { return *s_Instance; }
 	private:
+		void Run();
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 	private:
@@ -44,6 +45,7 @@ namespace Aurora {
 		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
+		friend int ::main(int argc, char** argv);
 	};
 
 	// To be defined in CLIENT

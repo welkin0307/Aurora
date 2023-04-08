@@ -81,9 +81,6 @@
     <ClInclude Include="src\Aurora\Core\Log.h">
       <Filter>src\Aurora\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Aurora\Core\MouseButtonCodes.h">
-      <Filter>src\Aurora\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Aurora\Core\Timestep.h">
       <Filter>src\Aurora\Core</Filter>
     </ClInclude>
@@ -1253,6 +1250,7 @@
     </ClInclude>
     <ClInclude Include="src\Aurora\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Aurora\Debug\Instrumentor.h" />
+    <ClInclude Include="src\Aurora\Core\MouseCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aurora\Core\Application.cpp">
@@ -1332,5 +1330,7 @@
     </ClCompile>
     <ClCompile Include="src\Aurora\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Aurora\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Aurora\Core\Input.cpp" />
+    <ClCompile Include="src\Aurora\Core\Window.cpp" />
   </ItemGroup>
 </Project>

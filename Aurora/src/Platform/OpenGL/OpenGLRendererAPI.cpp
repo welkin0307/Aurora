@@ -5,9 +5,37 @@
 
 namespace Aurora {
 
+	void OpenGLMessageCallback(
+		unsigned source,
+		unsigned type,
+		unsigned id,
+		unsigned severity,
+		int length,
+		const char* message,
+		const void* userParam)
+	{
+		switch (severity)
+		{
+		case GL_DEBUG_SEVERITY_HIGH:         AUR_CORE_CRITICAL(message); return;
+		case GL_DEBUG_SEVERITY_MEDIUM:       AUR_CORE_ERROR(message); return;
+		case GL_DEBUG_SEVERITY_LOW:          AUR_CORE_WARN(message); return;
+		case GL_DEBUG_SEVERITY_NOTIFICATION: AUR_CORE_TRACE(message); return;
+		}
+
+		AUR_CORE_ASSERT(false, "Unknown severity level!");
+	}
+
 	void OpenGLRendererAPI::Init()
 	{
 		AUR_PROFILE_FUNCTION();
+
+#ifdef AUR_DEBUG
+		glEnable(GL_DEBUG_OUTPUT);
+		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+		glDebugMessageCallback(OpenGLMessageCallback, nullptr);
+
+		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, NULL, GL_FALSE);
+#endif
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

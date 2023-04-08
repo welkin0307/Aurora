@@ -147,6 +147,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Aurora\Core\MouseCodes.h" />
     <ClInclude Include="src\Aurora\Debug\Instrumentor.h" />
     <ClInclude Include="src\Aurora\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Aurora.h" />
@@ -158,7 +159,6 @@
     <ClInclude Include="src\Aurora\Core\Layer.h" />
     <ClInclude Include="src\Aurora\Core\LayerStack.h" />
     <ClInclude Include="src\Aurora\Core\Log.h" />
-    <ClInclude Include="src\Aurora\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Aurora\Core\Timestep.h" />
     <ClInclude Include="src\Aurora\Core\Window.h" />
     <ClInclude Include="src\Aurora\Events\ApplicationEvent.h" />
@@ -550,6 +550,8 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Aurora\Core\Input.cpp" />
+    <ClCompile Include="src\Aurora\Core\Window.cpp" />
     <ClCompile Include="src\Aurora\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Aurora\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Aurora\Core\Application.cpp">
