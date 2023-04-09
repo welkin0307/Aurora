@@ -25,15 +25,9 @@ namespace Aurora {
 
 	class Instrumentor
 	{
-	private:
-		std::mutex m_Mutex;
-		InstrumentationSession* m_CurrentSession;
-		std::ofstream m_OutputStream;
 	public:
-		Instrumentor()
-			: m_CurrentSession(nullptr)
-		{
-		}
+		Instrumentor(const Instrumentor&) = delete;
+		Instrumentor(Instrumentor&&) = delete;
 
 		void BeginSession(const std::string& name, const std::string& filepath = "results.json")
 		{
@@ -95,6 +89,16 @@ namespace Aurora {
 
 	private:
 
+		Instrumentor()
+			: m_CurrentSession(nullptr)
+		{
+		}
+
+		~Instrumentor()
+		{
+			EndSession();
+		}
+
 		void WriteHeader()
 		{
 			m_OutputStream << "{\"otherData\": {},\"traceEvents\":[{}";
@@ -117,6 +121,11 @@ namespace Aurora {
 				m_CurrentSession = nullptr;
 			}
 		}
+
+	private:
+		std::mutex m_Mutex;
+		InstrumentationSession* m_CurrentSession;
+		std::ofstream m_OutputStream;
 
 	};
 
@@ -205,9 +214,10 @@ namespace Aurora {
 	#endif
 #define AUR_PROFILE_BEGIN_SESSION(name, filepath) ::Aurora::Instrumentor::Get().BeginSession(name, filepath)
 #define AUR_PROFILE_END_SESSION() ::Aurora::Instrumentor::Get().EndSession()
-#define AUR_PROFILE_SCOPE(name) constexpr auto fixedName =
-::Aurora::InstrumentorUtils::CleanupOutputString(name, "__cdecl "); \
-::Aurora::InstrumentationTimer timer##__LINE__(fixedName.Data)
+#define AUR_PROFILE_SCOPE_LINE2(name, line) constexpr auto fixedName##line = ::Aurora::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
+											   ::Aurora::InstrumentationTimer timer##line(fixedName##line.Data)
+#define AUR_PROFILE_SCOPE_LINE(name, line) AUR_PROFILE_SCOPE_LINE2(name, line)
+#define AUR_PROFILE_SCOPE(name) AUR_PROFILE_SCOPE_LINE(name, __LINE__)
 #define AUR_PROFILE_FUNCTION() AUR_PROFILE_SCOPE(__FUNCSIG__)
 #else
 #define AUR_PROFILE_BEGIN_SESSION(name, filepath)

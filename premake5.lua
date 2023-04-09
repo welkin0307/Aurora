@@ -32,6 +32,7 @@ IncludeDir["Glad"] = "Aurora/vendor/Glad/include"
 IncludeDir["ImGui"] = "Aurora/vendor/imgui"
 IncludeDir["glm"] = "Aurora/vendor/glm"
 IncludeDir["stb_image"] = "Aurora/vendor/stb_image"
+IncludeDir["entt"] = "Aurora/vendor/entt/include"
 
 group "Dependencies"
     include "Aurora/vendor/GLFW"
@@ -86,7 +87,8 @@ project "Aurora"
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
         "%{IncludeDir.glm}",
-        "%{IncludeDir.stb_image}"
+        "%{IncludeDir.stb_image}",
+        "%{IncludeDir.entt}"
     }
 
     --链接到项目
@@ -194,7 +196,8 @@ project "AuroraPolaris"
 		"Aurora/vendor/spdlog/include",
 		"Aurora/src",
 		"Aurora/vendor",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+        "%{IncludeDir.entt}"
 	}
 
 	links

@@ -16,6 +16,10 @@
 
 #include "Aurora/ImGui/ImGuiLayer.h"
 
+#include "Aurora/Scene/Scene.h"
+#include "Aurora/Scene/Entity.h"
+#include "Aurora/Scene/Components.h"
+
 // ---Renderer------------------------------------
 #include "Aurora/Renderer/Renderer.h"
 #include "Aurora/Renderer/Renderer2D.h"
