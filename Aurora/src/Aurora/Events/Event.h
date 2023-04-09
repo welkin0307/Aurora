@@ -48,8 +48,9 @@ namespace Aurora {
 	// 事件基类
 	class Event
 	{
-
 	public:
+		virtual ~Event() = default;
+
 		bool Handled = false;
 
 		virtual EventType GetEventType() const = 0;

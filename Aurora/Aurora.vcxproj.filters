@@ -69,9 +69,6 @@
     <ClInclude Include="src\Aurora\Core\EntryPoint.h">
       <Filter>src\Aurora\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Aurora\Core\Input.h">
-      <Filter>src\Aurora\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Aurora\Core\KeyCodes.h">
       <Filter>src\Aurora\Core</Filter>
     </ClInclude>
@@ -167,9 +164,6 @@
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
-      <Filter>src\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1271,7 +1265,7 @@
     <ClCompile Include="src\Aurora\Core\Application.cpp">
       <Filter>src\Aurora\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Aurora\Core\Input.cpp">
+    <ClCompile Include="src\Aurora\Core\Input.h">
       <Filter>src\Aurora\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Aurora\Core\Layer.cpp">
