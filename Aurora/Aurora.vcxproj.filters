@@ -10,6 +10,9 @@
     <Filter Include="src\Aurora\Core">
       <UniqueIdentifier>{5E8CC435-CA17-32FA-D328-B5EE3F338EFA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Aurora\Debug">
+      <UniqueIdentifier>{3C7362EE-286C-8140-519E-66C53DF6604C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Aurora\Events">
       <UniqueIdentifier>{6A2D3BBE-D643-3954-1FBB-C4758B100ADC}</UniqueIdentifier>
     </Filter>
@@ -81,11 +84,17 @@
     <ClInclude Include="src\Aurora\Core\Log.h">
       <Filter>src\Aurora\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Aurora\Core\MouseCodes.h">
+      <Filter>src\Aurora\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Aurora\Core\Timestep.h">
       <Filter>src\Aurora\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Aurora\Core\Window.h">
       <Filter>src\Aurora\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\Debug\Instrumentor.h">
+      <Filter>src\Aurora\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Aurora\Events\ApplicationEvent.h">
       <Filter>src\Aurora\Events</Filter>
@@ -118,6 +127,9 @@
       <Filter>src\Aurora\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Aurora\Renderer\Renderer.h">
+      <Filter>src\Aurora\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\Renderer\Renderer2D.h">
       <Filter>src\Aurora\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Aurora\Renderer\RendererAPI.h">
@@ -1248,12 +1260,12 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Aurora\Renderer\Renderer2D.h" />
-    <ClInclude Include="src\Aurora\Debug\Instrumentor.h" />
-    <ClInclude Include="src\Aurora\Core\MouseCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aurora\Core\Application.cpp">
+      <Filter>src\Aurora\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Aurora\Core\Input.cpp">
       <Filter>src\Aurora\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Aurora\Core\Layer.cpp">
@@ -1265,6 +1277,9 @@
     <ClCompile Include="src\Aurora\Core\Log.cpp">
       <Filter>src\Aurora\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Aurora\Core\Window.cpp">
+      <Filter>src\Aurora\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\Aurora\ImGui\ImGuiBuild.cpp">
       <Filter>src\Aurora\ImGui</Filter>
     </ClCompile>
@@ -1272,6 +1287,9 @@
       <Filter>src\Aurora\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Aurora\Renderer\Buffer.cpp">
+      <Filter>src\Aurora\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Aurora\Renderer\GraphicsContext.cpp">
       <Filter>src\Aurora\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Aurora\Renderer\OrthographicCamera.cpp">
@@ -1284,6 +1302,9 @@
       <Filter>src\Aurora\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Aurora\Renderer\Renderer.cpp">
+      <Filter>src\Aurora\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Aurora\Renderer\Renderer2D.cpp">
       <Filter>src\Aurora\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Aurora\Renderer\RendererAPI.cpp">
@@ -1328,9 +1349,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\Renderer2D.cpp" />
-    <ClCompile Include="src\Aurora\Renderer\GraphicsContext.cpp" />
-    <ClCompile Include="src\Aurora\Core\Input.cpp" />
-    <ClCompile Include="src\Aurora\Core\Window.cpp" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Aurora/Core/Core.h"
+#include "Aurora/Core/Base.h"
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
 

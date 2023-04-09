@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Aurora/Core/Core.h"
+#include "Aurora/Core/Base.h"
 #include "Aurora/Core/Layer.h"
 
 #include <vector>

@@ -73,7 +73,8 @@ project "Aurora"
 
     defines
     {
-        "_CRT_SECURE_NO_WARNINGS"
+        "_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
     }
 
     --依赖库路径
@@ -105,8 +106,6 @@ project "Aurora"
         --宏定义
         defines
         {
-            "AUR_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
         }
 
     --调试版本过滤器

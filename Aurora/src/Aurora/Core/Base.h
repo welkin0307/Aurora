@@ -47,14 +47,24 @@
 
 // µ÷ÊÔ
 #ifdef AUR_DEBUG
-	#define AUR_ENABLE_ASSERTS
-#endif // AUR_DEBUG
+#if defined(AUR_PLATFORM_WINDOWS)
+#define AUR_DEBUGBREAK() __debugbreak()
+#elif defined(AUR_PLATFORM_LINUX)
+#include <signal.h>
+#define AUR_DEBUGBREAK() raise(SIGTRAP)
+#else
+#error "Platform doesn't support debugbreak yet!"
+#endif
+#define AUR_ENABLE_ASSERTS
+#else
+#define AUR_DEBUGBREAK()
+#endif
 
 
 // ¶ÏÑÔ
 #ifdef AUR_ENABLE_ASSERTS
-	#define AUR_CLIENT_ASSERT(x,...){ if(!(x)){AUR_CLIENT_ERROR("Assertion Failed: {0}", __VA_ARGS__);__debugbreak();}}
-	#define AUR_CORE_ASSERT(x,...) {if(!(x)){AUR_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__);__debugbreak();}}
+	#define AUR_CLIENT_ASSERT(x,...){ if(!(x)){AUR_CLIENT_ERROR("Assertion Failed: {0}", __VA_ARGS__); AUR_DEBUGBREAK();}}
+	#define AUR_CORE_ASSERT(x,...) {if(!(x)){AUR_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); AUR_DEBUGBREAK();}}
 #else
 	#define AUR_CLIENT_ASSERT(x,...)
 	#define AUR_CORE_ASSERT(x,...)

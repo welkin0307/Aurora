@@ -1,7 +1,7 @@
 #pragma once
 
 // For use by Aurora application
-#include "Aurora/Core/Core.h"
+#include "Aurora/Core/Base.h"
 
 #include "Aurora/Core/Application.h"
 #include "Aurora/Core/Layer.h"
