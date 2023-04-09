@@ -63,7 +63,7 @@
     <ClInclude Include="src\Aurora\Core\Application.h">
       <Filter>src\Aurora\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Aurora\Core\Core.h">
+    <ClInclude Include="src\Aurora\Core\Base.h">
       <Filter>src\Aurora\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Aurora\Core\EntryPoint.h">

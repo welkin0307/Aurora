@@ -54,6 +54,11 @@ namespace Aurora {
 		layer->OnAttach();
 	}
 
+	void Application::Close()
+	{
+		m_Running = false;
+	}
+
 	// 回调函数实现
 	void Application::OnEvent(Event& e)
 	{
