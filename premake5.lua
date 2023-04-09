@@ -172,3 +172,50 @@ project "Sandbox"
         defines "AUR_DIST"
         runtime "Release"
         optimize "On"
+
+project "Aurora-Editor"
+    location "Aurora-Editor"
+    kind "ConsoleApp"
+    language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Aurora/vendor/spdlog/include",
+		"Aurora/src",
+		"Aurora/vendor",
+		"%{IncludeDir.glm}"
+	}
+
+	links
+	{
+		"Aurora"
+	}
+
+	filter "system:windows"
+		systemversion "latest"
+		
+	filter "configurations:Debug"
+		defines "AUR_DEBUG"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+		defines "AUR_RELEASE"
+		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "AUR_DIST"
+		runtime "Release"
+		optimize "on"    

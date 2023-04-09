@@ -14,14 +14,14 @@ namespace Aurora {
 
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application()
+	Application::Application(const std::string& name)
 	{
 		AUR_PROFILE_FUNCTION();
 
 		AUR_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
-		m_Window = Window::Create();
+		m_Window = Window::Create(WindowProps(name));
 		//设置事件回调
 		m_Window->SetEventCallback(AUR_BIND_EVENT_FN(Application::OnEvent));
 
