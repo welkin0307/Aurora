@@ -3,7 +3,7 @@ workspace "Aurora"
     --项目构建架构
     architecture "x86_64"
     --设置启动项目
-    startproject "Sandbox"
+    startproject "AuroraPolaris"
 
     --解决方案版本 
     configurations
@@ -173,8 +173,8 @@ project "Sandbox"
         runtime "Release"
         optimize "On"
 
-project "Aurora-Editor"
-    location "Aurora-Editor"
+project "AuroraPolaris"
+    location "AuroraPolaris"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++17"

@@ -5,15 +5,21 @@
 
 extern Aurora::Application* Aurora::CreateApplication();
 
-int main(int argc,char** argv)
+int main(int argc, char** argv)
 {
 	Aurora::Log::Init();
-	AUR_CORE_WARN("Initialized Log!");
-	AUR_CLIENT_INFO("Hello Rookie!");
 
+	AUR_PROFILE_BEGIN_SESSION("Startup", "AuroraProfile-Startup.json");
 	auto app = Aurora::CreateApplication();
+	AUR_PROFILE_END_SESSION();
+
+	AUR_PROFILE_BEGIN_SESSION("Runtime", "AuroraProfile-Runtime.json");
 	app->Run();
+	AUR_PROFILE_END_SESSION();
+
+	AUR_PROFILE_BEGIN_SESSION("Shutdown", "AuroraProfile-Shutdown.json");
 	delete app;
+	AUR_PROFILE_END_SESSION();
 }
 
 #endif

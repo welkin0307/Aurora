@@ -5,23 +5,23 @@
 
 namespace Aurora {
 
-	class AuroraEditor : public Application
+	class AuroraPolaris : public Application
 	{
 	public:
-		AuroraEditor()
-			: Application("Aurora Editor")
+		AuroraPolaris()
+			: Application("Aurora Polaris")
 		{
 			PushLayer(new EditorLayer());
 		}
 
-		~AuroraEditor()
+		~AuroraPolaris()
 		{
 		}
 	};
 
 	Application* CreateApplication()
 	{
-		return new AuroraEditor();
+		return new AuroraPolaris();
 	}
 
 }
