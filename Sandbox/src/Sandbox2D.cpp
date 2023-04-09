@@ -15,6 +15,11 @@ void Sandbox2D::OnAttach()
 	AUR_PROFILE_FUNCTION();
 
 	m_CheckerboardTexture = Aurora::Texture2D::Create("assets/textures/Background.jpg");
+
+	Aurora::FramebufferSpecification fbSpec;
+	fbSpec.Width = 1280;
+	fbSpec.Height = 720;
+	m_Framebuffer = Aurora::Framebuffer::Create(fbSpec);
 }
 
 void Sandbox2D::OnDetach()
@@ -33,6 +38,7 @@ void Sandbox2D::OnUpdate(Aurora::Timestep ts)
 	Aurora::Renderer2D::ResetStats();
 	{
 		AUR_PROFILE_SCOPE("Renderer Prep");
+		m_Framebuffer->Bind();
 		Aurora::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Aurora::RenderCommand::Clear();
 	}
@@ -60,6 +66,7 @@ void Sandbox2D::OnUpdate(Aurora::Timestep ts)
 			}
 		}
 		Aurora::Renderer2D::EndScene();
+		m_Framebuffer->Unbind();
 	}
 
 
@@ -74,7 +81,7 @@ void Sandbox2D::OnImGuiRender()
 	AUR_PROFILE_FUNCTION();
 
 	// Note: Switch this to true to enable dockspace
-	static bool dockingEnabled = false;
+	static bool dockingEnabled = true;
 	if (dockingEnabled)
 	{
 		static bool dockspaceOpen = true;
@@ -147,8 +154,8 @@ void Sandbox2D::OnImGuiRender()
 
 		ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 
-		uint32_t textureID = m_CheckerboardTexture->GetRendererID();
-		ImGui::Image((void*)textureID, ImVec2{ 256.0f, 256.0f });
+		uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
+		ImGui::Image((void*)textureID, ImVec2{ 1280, 720 });
 		ImGui::End();
 
 		ImGui::End();
@@ -167,7 +174,7 @@ void Sandbox2D::OnImGuiRender()
 		ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 
 		uint32_t textureID = m_CheckerboardTexture->GetRendererID();
-		ImGui::Image((void*)textureID, ImVec2{ 256.0f, 256.0f });
+		ImGui::Image((void*)textureID, ImVec2{ 1280, 720 });
 		ImGui::End();
 	}
 }
