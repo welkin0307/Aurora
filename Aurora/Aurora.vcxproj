@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="src\Aurora.h" />
     <ClInclude Include="src\Aurora\Core\Application.h" />
+    <ClInclude Include="src\Aurora\Core\Assert.h" />
     <ClInclude Include="src\Aurora\Core\Base.h" />
     <ClInclude Include="src\Aurora\Core\EntryPoint.h" />
     <ClInclude Include="src\Aurora\Core\Input.h" />

@@ -13,11 +13,11 @@ namespace Aurora {
 	public:
 		static void Init();
 		static void Shutdown();
-		static void Flush();
 
 		static void BeginScene(const Camera& camera, const glm::mat4& transform);
 		static void BeginScene(const OrthographicCamera& camera); // TODO: Remove
 		static void EndScene();
+		static void Flush();
 
 		// Primitives
 		static void DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::vec4& color);
@@ -44,8 +44,10 @@ namespace Aurora {
 		};
 		static void ResetStats();
 		static Statistics GetStats();
+
 	private:
-		static void FlushAndReset();
+		static void StartBatch();
+		static void NextBatch();
 	};
 
 }
