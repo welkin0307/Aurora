@@ -18,6 +18,7 @@
 
 #include "Aurora/Scene/Scene.h"
 #include "Aurora/Scene/Entity.h"
+#include "Aurora/Scene/ScriptableEntity.h"
 #include "Aurora/Scene/Components.h"
 
 // ---Renderer------------------------------------
