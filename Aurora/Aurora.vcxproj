@@ -147,6 +147,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Aurora\Scene\SceneCamera.h" />
     <ClInclude Include="src\Aurora.h" />
     <ClInclude Include="src\Aurora\Core\Application.h" />
     <ClInclude Include="src\Aurora\Core\Base.h" />
@@ -555,6 +556,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Aurora\Scene\SceneCamera.cpp" />
     <ClCompile Include="src\Aurora\Core\Application.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
