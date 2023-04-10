@@ -81,7 +81,6 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -100,7 +99,6 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -117,7 +115,6 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -132,26 +129,10 @@
     <ClInclude Include="imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="imgui.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="imgui_demo.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="imgui_draw.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="imgui_widgets.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
+    <ClCompile Include="imgui.cpp" />
+    <ClCompile Include="imgui_demo.cpp" />
+    <ClCompile Include="imgui_draw.cpp" />
+    <ClCompile Include="imgui_widgets.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

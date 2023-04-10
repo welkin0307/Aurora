@@ -81,7 +81,6 @@
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -100,7 +99,6 @@
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -117,7 +115,6 @@
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -129,81 +126,21 @@
     <ClInclude Include="src\glfw_config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\context.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\egl_context.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\init.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\input.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\monitor.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\osmesa_context.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\vulkan.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\wgl_context.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\win32_init.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\win32_joystick.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\win32_monitor.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\win32_thread.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\win32_time.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\win32_window.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\window.c">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
+    <ClCompile Include="src\context.c" />
+    <ClCompile Include="src\egl_context.c" />
+    <ClCompile Include="src\init.c" />
+    <ClCompile Include="src\input.c" />
+    <ClCompile Include="src\monitor.c" />
+    <ClCompile Include="src\osmesa_context.c" />
+    <ClCompile Include="src\vulkan.c" />
+    <ClCompile Include="src\wgl_context.c" />
+    <ClCompile Include="src\win32_init.c" />
+    <ClCompile Include="src\win32_joystick.c" />
+    <ClCompile Include="src\win32_monitor.c" />
+    <ClCompile Include="src\win32_thread.c" />
+    <ClCompile Include="src\win32_time.c" />
+    <ClCompile Include="src\win32_window.c" />
+    <ClCompile Include="src\window.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

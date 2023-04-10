@@ -84,7 +84,6 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -109,7 +108,6 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -135,7 +133,6 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -147,7 +144,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Aurora\Scene\SceneCamera.h" />
     <ClInclude Include="src\Aurora.h" />
     <ClInclude Include="src\Aurora\Core\Application.h" />
     <ClInclude Include="src\Aurora\Core\Base.h" />
@@ -158,6 +154,7 @@
     <ClInclude Include="src\Aurora\Core\LayerStack.h" />
     <ClInclude Include="src\Aurora\Core\Log.h" />
     <ClInclude Include="src\Aurora\Core\MouseCodes.h" />
+    <ClInclude Include="src\Aurora\Core\PlatformDetection.h" />
     <ClInclude Include="src\Aurora\Core\Timestep.h" />
     <ClInclude Include="src\Aurora\Core\Window.h" />
     <ClInclude Include="src\Aurora\Debug\Instrumentor.h" />
@@ -182,6 +179,7 @@
     <ClInclude Include="src\Aurora\Scene\Components.h" />
     <ClInclude Include="src\Aurora\Scene\Entity.h" />
     <ClInclude Include="src\Aurora\Scene\Scene.h" />
+    <ClInclude Include="src\Aurora\Scene\SceneCamera.h" />
     <ClInclude Include="src\Aurora\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -557,160 +555,41 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Aurora\Scene\SceneCamera.cpp" />
-    <ClCompile Include="src\Aurora\Core\Application.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Core\Layer.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Core\LayerStack.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Core\Log.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Core\Window.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\ImGui\ImGuiBuild.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\ImGui\ImGuiLayer.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\Buffer.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\Framebuffer.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\GraphicsContext.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\OrthographicCamera.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\OrthographicCameraController.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\RenderCommand.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\Renderer.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\Renderer2D.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\RendererAPI.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\Shader.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\Texture.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Aurora\Renderer\VertexArray.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
+    <ClCompile Include="src\Aurora\Core\Application.cpp" />
+    <ClCompile Include="src\Aurora\Core\Layer.cpp" />
+    <ClCompile Include="src\Aurora\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Aurora\Core\Log.cpp" />
+    <ClCompile Include="src\Aurora\Core\Window.cpp" />
+    <ClCompile Include="src\Aurora\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\Aurora\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\Framebuffer.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\Texture.cpp" />
+    <ClCompile Include="src\Aurora\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Aurora\Scene\Entity.cpp" />
     <ClCompile Include="src\Aurora\Scene\Scene.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
+    <ClCompile Include="src\Aurora\Scene\SceneCamera.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\aurpch.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="vendor\stb_image\stb_image.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
+    <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

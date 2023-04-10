@@ -79,14 +79,13 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>AUR_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Aurora\vendor\spdlog\include;..\Aurora\src;..\Aurora\vendor;..\Aurora\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Aurora\vendor\spdlog\include;..\Aurora\src;..\Aurora\vendor;..\Aurora\vendor\glm;..\Aurora\vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -98,7 +97,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>AUR_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Aurora\vendor\spdlog\include;..\Aurora\src;..\Aurora\vendor;..\Aurora\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Aurora\vendor\spdlog\include;..\Aurora\src;..\Aurora\vendor;..\Aurora\vendor\glm;..\Aurora\vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -107,7 +106,6 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,7 +118,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>AUR_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Aurora\vendor\spdlog\include;..\Aurora\src;..\Aurora\vendor;..\Aurora\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Aurora\vendor\spdlog\include;..\Aurora\src;..\Aurora\vendor;..\Aurora\vendor\glm;..\Aurora\vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -129,7 +127,6 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,21 +139,9 @@
     <ClInclude Include="src\Sandbox2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ExampleLayer.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\Sandbox2D.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
-    <ClCompile Include="src\SandboxApp.cpp">
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
-    </ClCompile>
+    <ClCompile Include="src\ExampleLayer.cpp" />
+    <ClCompile Include="src\Sandbox2D.cpp" />
+    <ClCompile Include="src\SandboxApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aurora\Aurora.vcxproj">

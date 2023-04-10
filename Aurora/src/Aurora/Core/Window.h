@@ -1,6 +1,6 @@
 #pragma once
 
-#include "aurpch.h"
+#include <sstream>
 
 #include "Aurora/Core/Base.h"
 #include "Aurora/Events/Event.h"

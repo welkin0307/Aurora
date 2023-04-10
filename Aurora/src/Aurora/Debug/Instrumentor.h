@@ -6,6 +6,11 @@
 #include <iomanip>
 #include <string>
 #include <thread>
+#include <mutex>
+#include <sstream>
+
+#include "Aurora/Core/Log.h"
+
 
 namespace Aurora {
 	using FloatingPointMicroseconds = std::chrono::duration<double, std::micro>;

@@ -7,33 +7,31 @@
 namespace Aurora {
 
 	OrthographicCameraController::OrthographicCameraController(float aspectRatio, bool rotation)
-		: m_AspectRatio(aspectRatio), m_Camera(-m_AspectRatio * m_ZoomLevel, m_AspectRatio* m_ZoomLevel,
-			-m_ZoomLevel, m_ZoomLevel), m_Rotation(rotation)
+		: m_AspectRatio(aspectRatio), m_Camera(-m_AspectRatio * m_ZoomLevel, m_AspectRatio* m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel), m_Rotation(rotation)
 	{
-
 	}
 
 	void OrthographicCameraController::OnUpdate(Timestep ts)
 	{
 		AUR_PROFILE_FUNCTION();
 
-		if (Input::IsKeyPressed(AUR_KEY_A))
+		if (Input::IsKeyPressed(Key::A))
 		{
-			m_CameraPosition.x -= cos(glm::radians(m_CameraRotation))*m_CameraTranslationSpeed * ts;
+			m_CameraPosition.x -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y -= sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
-		else if(Input::IsKeyPressed(AUR_KEY_D))
+		else if (Input::IsKeyPressed(Key::D))
 		{
 			m_CameraPosition.x += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y += sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
 
-		if (Input::IsKeyPressed(AUR_KEY_W))
+		if (Input::IsKeyPressed(Key::W))
 		{
 			m_CameraPosition.x += -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
-		else if (Input::IsKeyPressed(AUR_KEY_S))
+		else if (Input::IsKeyPressed(Key::S))
 		{
 			m_CameraPosition.x -= -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
@@ -41,14 +39,10 @@ namespace Aurora {
 
 		if (m_Rotation)
 		{
-			if (Input::IsKeyPressed(AUR_KEY_Q))
-			{
+			if (Input::IsKeyPressed(Key::Q))
 				m_CameraRotation += m_CameraRotationSpeed * ts;
-			}
-			else if (Input::IsKeyPressed(AUR_KEY_E))
-			{
+			if (Input::IsKeyPressed(Key::E))
 				m_CameraRotation -= m_CameraRotationSpeed * ts;
-			}
 
 			if (m_CameraRotation > 180.0f)
 				m_CameraRotation -= 360.0f;
@@ -72,6 +66,12 @@ namespace Aurora {
 		dispatcher.Dispatch<WindowResizeEvent>(AUR_BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
 	}
 
+	void OrthographicCameraController::OnResize(float width, float height)
+	{
+		m_AspectRatio = width / height;
+		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+	}
+
 	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
 		AUR_PROFILE_FUNCTION();
@@ -82,12 +82,6 @@ namespace Aurora {
 		return false;
 	}
 
-	void OrthographicCameraController::OnResize(float width, float height)
-	{
-		m_AspectRatio = width / height;
-		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
-	}
-
 	bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
 	{
 		AUR_PROFILE_FUNCTION();
@@ -95,4 +89,5 @@ namespace Aurora {
 		OnResize((float)e.GetWidth(), (float)e.GetHeight());
 		return false;
 	}
+
 }

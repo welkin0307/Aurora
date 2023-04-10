@@ -1,6 +1,7 @@
 #pragma once
+#include <functional>
 
-#include "aurpch.h"
+#include "Aurora/Debug/Instrumentor.h"
 #include "Aurora/Core/Base.h"
 
 namespace Aurora {
