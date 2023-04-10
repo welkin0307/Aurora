@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Aurora/Core/Base.h"
-#include "Aurora/Core/Log.h"
 #include "Aurora/Scene/Scene.h"
 #include "Aurora/Scene/Entity.h"
 
@@ -23,5 +22,4 @@ namespace Aurora {
 		Ref<Scene> m_Context;
 		Entity m_SelectionContext;
 	};
-
 }

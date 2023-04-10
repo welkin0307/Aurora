@@ -6,6 +6,7 @@
 #include "Aurora/Core/Application.h"
 #include "Aurora/Core/Layer.h"
 #include "Aurora/Core/Log.h"
+#include "Aurora/Core/Assert.h"
 
 #include "Aurora/Core/Timestep.h"
 
